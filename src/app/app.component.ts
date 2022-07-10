@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
   loaddata() {
     this.apiserv
-      .getWeather('43.6992', '15.5332')
+      .getWeather('43.6992', '17.5332')
       .subscribe((res: any) => (this.data = res));
   }
 }
