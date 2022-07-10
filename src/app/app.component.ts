@@ -8,16 +8,16 @@ import { CurrentWeather } from './models/CurrentWeather';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'CssWeatherApp';
-  data!: CurrentWeather;
+  title = 'WeatherApp';
+  data!: CurrentWeather ;
   date_update!: any;
   date!: any;
   constructor(public apiserv: ApiservService) {
-    this.loaddata();
+   
   }
 
   ngOnInit(): void {
- 
+    this.loaddata();
     this.date = new Date();
     this.date_update = this.date.toLocaleString();
   
