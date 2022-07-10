@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { WeatherPanelComponent } from './weather-panel/weather-panel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchPanelComponent,
+    WeatherPanelComponent
   ],
   imports: [
     BrowserModule,
