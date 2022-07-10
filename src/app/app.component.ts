@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiservService } from './services/apiserv.service';
-import { CurrentWeather } from './models/current_weather';
+import { CurrentWeather } from './models/CurrentWeather';
 
 @Component({
   selector: 'app-root',
