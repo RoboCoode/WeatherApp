@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { WeatherPanelComponent } from './weather-panel/weather-panel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { WeatherPanelComponent } from './weather-panel/weather-panel.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,22 @@
 <div id="panel2">
-  <p>Location</p>
-  <div>search bar</div>
+  <p id="location">Location</p>
+
+  <div class="d-flex p-4" style="margin-top: 3rem">
+    <input
+      type="search"
+      name="search"
+      placeholder="   Search city ..."
+      [(ngModel)]="search"
+      (ngModelChange)="searching(search)"
+    />
+
+    
+
+   
+  </div>
 
   <div class="container">
-    <ng-container *ngFor="let city of list_city">
+    <ng-container *ngFor="let city of list_cities">
       <div class="row mt-1">
         <button type="button" class="btn btn-light" (click)="unamed()">
           <div class="col">

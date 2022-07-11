@@ -15,6 +15,36 @@
   box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
 }
 
+input {
+  background: #f3f3f3;
+  width: 20rem;
+  height: 40px;
+  border: none;
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  /* identical to box height */
+
+  letter-spacing: -0.05em;
+
+  color: #000000;
+}
+input::placeholder {
+  font-family: "Barlow";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  letter-spacing: -0.05em;
+
+  color: #9f9f9f;
+}
+
 .btn:hover {
   background: #94b8ffec;
 }
@@ -45,4 +75,21 @@
   text-align: right;
   letter-spacing: -0.05em;
   color: #1d1b1b;
+}
+
+#location {
+  position: absolute;
+  width: 63px;
+  height: 19px;
+  left: 157px;
+  top: 30px;
+
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #999999;
 }
