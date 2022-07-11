@@ -436,7 +436,7 @@
 #sunrise_text {
   z-index: 2;
   position: absolute;
-  width: 52px;
+  width: 60px;
   height: 19px;
   left: 41px;
   top: 613px;
@@ -473,7 +473,7 @@
 #sunset_text {
   z-index: 2;
   position: absolute;
-  width: 51px;
+  width: 60px;
   height: 19px;
   left: 162px;
   top: 613px;
@@ -510,7 +510,7 @@
 #clock_text {
   z-index: 2;
   position: absolute;
-  width: 41px;
+  width: 60px;
   height: 19px;
   left: 287px;
   top: 613px;

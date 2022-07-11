@@ -1,5 +1,5 @@
 
-    <div id="text_date">{{''+date_update}}</div>
+    <div id="text_date">{{'' + datenow(date) }}</div>
   
     <div id="location">
       <svg
@@ -57,13 +57,13 @@
     <div id="row3"></div>
   
     <img id="sunrise_icon" src="/assets/img/008-sunrise.svg" />
-    <div id="sunrise_text">{{''+data.sys?.sunrise +' '+' AM'}}</div>
+    <div id="sunrise_text">{{''+ time_format(data.sys?.sunrise)}}</div>
     <div id="sunrise_label">Sunrise</div>
     <img id="sunset_icon" src="/assets/img/007-sunset.svg" />
-    <div id="sunset_text">{{''+data.sys?.sunset +' '+' PM'}}</div>
+    <div id="sunset_text">{{''+ time_format(data.sys?.sunset) }}</div>
     <div id="sunset_label">Sunset</div>
     <img id="clock_icon" src="/assets/img/sand-clock.svg" />
-    <div id="clock_text">13h 1m</div>
+    <div id="clock_text">{{daytime(data.sys.sunset,data.sys.sunrise)}}</div>
     <div id="clock_label">Daytime</div>
   
     <div id="row4"></div>
