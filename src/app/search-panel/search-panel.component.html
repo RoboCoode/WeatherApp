@@ -9,16 +9,12 @@
       [(ngModel)]="search"
       (ngModelChange)="searching(search)"
     />
-
-    
-
-   
   </div>
 
   <div class="container">
     <ng-container *ngFor="let city of list_cities">
       <div class="row mt-1">
-        <button type="button" class="btn btn-light" (click)="unamed()">
+        <button type="button" class="btn btn-light" (click)="sendData(city.cord)">
           <div class="col">
             <div class="d-flex justify-content-between">
               <div class="cities">{{ city.name }}</div>
