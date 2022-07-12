@@ -84,12 +84,6 @@ export class ApiservService {
           return throwError(() => new Error(error));
         })
       )
-      .pipe(
-        map((res) => {
-          console.log('res2 :' + JSON.stringify(res));
-
-          return res;
-        })
-      );
+     
   }
 }

@@ -85,8 +85,9 @@ export class WeatherPanelComponent implements OnInit {
     this.hourstep,
     this.hourstep,
   ];
-  days_forecast: (string | undefined)[] = [];
 
+  days_forecast: (string | undefined)[] = [];
+  number_days_date: (string | undefined)[] = [];
   constructor(public apiserv: ApiservService) {}
 
   ngOnInit(): void {
@@ -101,7 +102,6 @@ export class WeatherPanelComponent implements OnInit {
       .getForecast(this.childData[0], this.childData[1])
       .pipe(map((res) => this.filter3days(res)))
       .subscribe((res: any) => {
-        console.log('DATA :' + JSON.stringify(res));
         return (this.data_forecast = res);
       });
   }
@@ -199,7 +199,7 @@ export class WeatherPanelComponent implements OnInit {
   opensearchbar() {
     this.open = !this.open;
   }
-  // pocuva data z child: searchpanel-> parent: weatherpanel 
+  // pocuva data z child: searchpanel-> parent: weatherpanel
   // & close panel & refresh dat
 
   grabData(newdata: []) {
@@ -253,16 +253,31 @@ export class WeatherPanelComponent implements OnInit {
         return day(t.getDay());
       });
 
+      this.number_days_date = this.newlistForecast.map((e) => {
+        let num: number = e.dt * 1000;
+        let t = new Date(num);
+        return t.getDate().toString();
+      });
+
       let today = new Date();
       let today_day = day(today.getDay());
 
       if (this.days_forecast[0] == today_day) {
         this.days_forecast.shift();
         this.newlistForecast.shift();
+        this.number_days_date.shift();
       }
 
+      this.days_forecast = this.days_forecast.map((e, i) => {
+        e = e + ', ' + this.number_days_date[i];
+        console.log('e1: ' + e);
+
+        return e;
+      });
+
       console.log('days of forecast: ' + this.days_forecast);
-      console.log(this.newlistForecast);
+      console.log('number of days of forecast: ' + this.number_days_date);
+
       return e;
     } else {
       return;
