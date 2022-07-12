@@ -1,0 +1,106 @@
+<div id="text_date">{{ "" + datenow(date) }}</div>
+
+<div id="location">
+  <svg
+    id="place"
+    width="10"
+    height="12"
+    viewBox="0 0 10 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.93806 2.98668C8.89534 2.82659 8.8086 2.65601 8.74443 2.50667C7.97658 0.661332 6.29884 0 4.94415 0C3.13065 0 1.13329 1.21603 0.866623 3.72256V4.23465C0.866623 4.25603 0.873988 4.448 0.884451 4.54403C1.03394 5.73858 1.97652 7.00812 2.68049 8.20267C3.43785 9.48251 4.22372 10.7415 5.00232 12C5.48241 11.1787 5.96078 10.3467 6.42994 9.54668C6.5578 9.3119 6.70623 9.07727 6.83423 8.85318C6.91955 8.70397 7.08254 8.55476 7.157 8.41594C7.91434 7.02936 9.13335 5.63206 9.13335 4.256V3.6907C9.13338 3.54152 8.94846 3.01885 8.93806 2.98668ZM4.97735 5.5574C4.44427 5.5574 3.86078 5.29085 3.57277 4.55472C3.52986 4.43754 3.53332 4.20271 3.53332 4.1812V3.85053C3.53332 2.9121 4.33013 2.48535 5.02333 2.48535C5.87672 2.48535 6.53674 3.16811 6.53674 4.0215C6.53674 4.87487 5.83074 5.5574 4.97735 5.5574Z"
+      fill="#0D9FEA"
+    />
+  </svg>
+</div>
+<button (click)="opensearchbar()">
+  <div id="city"></div>
+  <div id="text_city">{{ data.name == "Nižné Nemecké" ? 'Koromľa' : data.name }}</div>
+  <div id="rectangle"></div>
+</button>
+
+<div id="row1"></div>
+
+<div id="main_weather"></div>
+<div id="location_icon1">
+  <img id="location2_icon2" src="http://openweathermap.org/img/wn/10d@2x.png" />
+</div>
+<div id="main_w_text">{{ "" + data.weather[0].main }}</div>
+
+<div id="temp">{{ "" + data.main.temp.toFixed(0) }}</div>
+<div id="celsius">°C</div>
+
+<div id="temp_var">
+  <img id="arrow_up" src="/assets/img/vector.svg" />
+  <img id="arrow_down" src="/assets/img/vector.svg" />
+</div>
+<div id="max_temp">{{ "" + data.main.temp_max.toFixed(0) + "°C" }}</div>
+<div id="min_temp">{{ "" + data.main.temp_min.toFixed(0) + "°C" }}</div>
+
+<div id="row2"></div>
+
+<img id="hum_icon" src="/assets/img/027-humidity.svg" />
+<div id="hum_text">{{ "" + data.main.humidity + "%" }}</div>
+<div id="hum_label">Humidity</div>
+<img id="bar_icon" src="/assets/img/050-barometer.svg" />
+<div id="bar_text">{{ "" + data.main.pressure + "  mBar" }}</div>
+<div id="bar_label">Pressure</div>
+<img id="wind_icon" src="/assets/img/001-wind-1.svg" />
+<div id="wind_text">{{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}</div>
+<div id="wind_label">Wind</div>
+
+<div id="row3"></div>
+
+<img id="sunrise_icon" src="/assets/img/008-sunrise.svg" />
+<div id="sunrise_text">{{ "" + time_format(data.sys.sunrise) }}</div>
+<div id="sunrise_label">Sunrise</div>
+<img id="sunset_icon" src="/assets/img/007-sunset.svg" />
+<div id="sunset_text">{{ "" + time_format(data.sys.sunset) }}</div>
+<div id="sunset_label">Sunset</div>
+<img id="clock_icon" src="/assets/img/sand-clock.svg" />
+<div id="clock_text">{{ daytime(data.sys.sunset, data.sys.sunrise) }}</div>
+<div id="clock_label">Daytime</div>
+
+<div id="row4"></div>
+
+<div id="first_day"></div>
+<div id="first_dayText">{{days_forecast[0]}}</div>
+<img id="icon_day1" src="http://openweathermap.org/img/wn/10d@2x.png" />
+
+<div id="first_group">
+  <img id="first_up" src="/assets/img/vector.svg" />
+  <img id="first_down" src="/assets/img/vector.svg" />
+</div>
+
+<div id="first_daymax">{{newlistForecast[0]?.main?.temp_max?.toFixed(0) + '°C'}}</div>
+<div id="first_daymin">{{newlistForecast[0]?.main?.temp_min?.toFixed(0) + '°C'}}</div>
+
+<div id="second_day"></div>
+<div id="second_dayText">{{days_forecast[1]}}</div>
+<img id="icon_day2" src="http://openweathermap.org/img/wn/10d@2x.png" />
+<div id="second_group">
+  <img id="second_up" src="/assets/img/vector.svg" />
+  <img id="second_down" src="/assets/img/vector.svg" />
+</div>
+
+<div id="second_daymax">{{newlistForecast[1]?.main?.temp_max?.toFixed(0) + '°C'}}</div>
+<div id="second_daymin">{{newlistForecast[1]?.main?.temp_min?.toFixed(0) + '°C'}}</div>
+
+<div id="third_day"></div>
+<div id="third_dayText">{{days_forecast[2]}}</div>
+<img id="icon_day3" src="http://openweathermap.org/img/wn/10d@2x.png" />
+<div id="third_group">
+  <img id="third_up" src="/assets/img/vector.svg" />
+  <img id="third_down" src="/assets/img/vector.svg" />
+</div>
+
+<div id="third_daymax">{{newlistForecast[2]?.main?.temp_max?.toFixed(0) + '°C'}}</div>
+<div id="third_daymin">{{newlistForecast[2]?.main?.temp_min?.toFixed(0) + '°C'}}</div>
+
+<div id="panel"></div>
+
+
+<app-search-panel *ngIf="open" (emitData)="grabData($event)"></app-search-panel>
+
