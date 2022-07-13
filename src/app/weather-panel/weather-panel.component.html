@@ -1,3 +1,4 @@
+
 <div id="text_date">{{ "" + datenow(date) }}</div>
 
 <div id="location">
@@ -15,7 +16,8 @@
     />
   </svg>
 </div>
-<button (click)="opensearchbar()">
+
+<button id="hid" (click)="opensearchbar()">
   <div id="city"></div>
   <div id="text_city">{{ data.name == "Nižné Nemecké" ? 'Koromľa' : data.name }}</div>
   <div id="rectangle"></div>

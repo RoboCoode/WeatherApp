@@ -21,6 +21,7 @@
   color: #999999;
 }
 
+#hid { margin-left:10px ;}
 #panel {
   position: absolute;
   width: 375px;

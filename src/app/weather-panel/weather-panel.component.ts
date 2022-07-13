@@ -3,7 +3,7 @@ import { ApiservService } from '../services/apiserv.service';
 import { CurrentWeather } from '../models/CurrentWeather';
 import { ForecastWeather } from '../models/ForecastWeather';
 import { HourStep } from '../models/ForecastWeather';
-import { AsyncSubject, BehaviorSubject, map, Observable, Observer } from 'rxjs';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-weather-panel',
