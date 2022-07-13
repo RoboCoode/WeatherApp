@@ -270,13 +270,10 @@ export class WeatherPanelComponent implements OnInit {
 
       this.days_forecast = this.days_forecast.map((e, i) => {
         e = e + ', ' + this.number_days_date[i];
-        console.log('e1: ' + e);
 
         return e;
       });
 
-      console.log('days of forecast: ' + this.days_forecast);
-      console.log('number of days of forecast: ' + this.number_days_date);
 
       return e;
     } else {
