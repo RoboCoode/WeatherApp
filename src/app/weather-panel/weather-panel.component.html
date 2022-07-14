@@ -2,7 +2,7 @@
   class="absolute z-20 bg-white w-screen h-screen shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-{17.438rem}"
 >
   <div class="flex justify-between">
-    <div class="flex p-1.5 items-center text-sm text-center text-[#999999]">
+    <div class="flex p-1.5 items-center font-normal text-sm text-center text-[#999999]">
       {{ "" + datenow(date) }}
     </div>
     <div
@@ -111,19 +111,32 @@
 
 
 
-    <div class="row3"></div>
+  <div class="row3 w-[96%]
+    flex justify-evenly flex-row
+    ">
+    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
 
     <img class="sunrise_icon" src="/assets/img/008-sunrise.svg" />
-    <div class="sunrise_text">{{ "" + time_format(data.sys.sunrise) }}</div>
-    <div class="sunrise_label">Sunrise</div>
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + time_format(data.sys.sunrise) }}</div>
+    <div class=" text-xs text-[#999999] ">Sunrise</div>
+    </div>
+    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+
     <img class="sunset_icon" src="/assets/img/007-sunset.svg" />
-    <div class="sunset_text">{{ "" + time_format(data.sys.sunset) }}</div>
-    <div class="sunset_label">Sunset</div>
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + time_format(data.sys.sunset) }}</div>
+    <div class=" text-xs text-[#999999] ">Sunset</div>
+  </div>
+    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+
     <img class="clock_icon" src="/assets/img/sand-clock.svg" />
-    <div class="clock_text">
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">
       {{ daytime(data.sys.sunset, data.sys.sunrise) }}
     </div>
-    <div class="clock_label">Daytime</div>
+    <div class=" text-xs text-[#999999] ">Daytime</div>
+  </div>
+  </div>
+
+
 
     <div class="row4"></div>
 
