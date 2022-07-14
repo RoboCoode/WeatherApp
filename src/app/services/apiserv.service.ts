@@ -7,7 +7,8 @@ import { retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiservService {
-  public optional: any;
+
+  
   private api_current = (lat: string, lon: string) =>
     'https://api.openweathermap.org/data/2.5/weather?lat=' +
     lat +
@@ -15,7 +16,7 @@ export class ApiservService {
     lon +
     '&appid=d6e68d99ae416bc82f8cf813f4f77092&units=metric';
 
-  private api_current2 = (lat: string, lon: string) =>
+  private api_forecast = (lat: string, lon: string) =>
     'https://api.openweathermap.org/data/2.5/forecast?lat=' +
     lat +
     '&lon=' +
@@ -30,60 +31,38 @@ export class ApiservService {
       .get(this.api_current(lat, lon))
       .pipe(
         retry(3),
-        catchError((error) => {
-          switch (error.status) {
-            case 400:
-              alert('Wrong API request');
-              break;
-            case 404:
-              alert('Network or client-server error. Please try later ');
-              break;
-            case 500:
-              alert('Server error. Please try later ');
-              break;
-            case 0:
-              alert('Network or client-server error. Please try later ');
-              break;
-            default:
-              alert('Network or client-server error. Please try later ');
-              break;
-          }
-          return throwError(() => new Error(error));
-        })
-      )
-      .pipe(
-        map((res) => {
-          return res;
-        })
+        catchError((error) => this.switchHandleError(error))
       );
   }
 
   getForecast(lat: string, lon: string) {
     return this.http
-      .get(this.api_current2(lat, lon))
+      .get(this.api_forecast(lat, lon))
       .pipe(
         retry(3),
-        catchError((error) => {
-          switch (error.status) {
-            case 400:
-              alert('Wrong API request');
-              break;
-            case 404:
-              alert('Network or client-server error. Please try later ');
-              break;
-            case 500:
-              alert('Server error. Please try later ');
-              break;
-            case 0:
-              alert('Network or client-server error. Please try later ');
-              break;
-            default:
-              alert('Network or client-server error. Please try later ');
-              break;
-          }
-          return throwError(() => new Error(error));
-        })
+        catchError((error) => this.switchHandleError(error))
       )
      
   }
+
+
+  switchHandleError(error: any){ 
+     switch (error.status) {
+    case 400:
+      alert('Wrong API request');
+      break;
+    case 404:
+      alert('Network or client-server error. Please try later ');
+      break;
+    case 500:
+      alert('Server error. Please try later ');
+      break;
+    case 0:
+      alert('Network or client-server error. Please try later ');
+      break;
+    default:
+      alert('Network or client-server error. Please try later ');
+      break;
+  }
+  return throwError(() => new Error(error));}
 }

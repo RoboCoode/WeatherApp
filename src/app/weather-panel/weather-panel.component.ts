@@ -88,6 +88,7 @@ export class WeatherPanelComponent implements OnInit {
 
   days_forecast: (string | undefined)[] = [];
   number_days_date: (string | undefined)[] = [];
+
   constructor(public apiserv: ApiservService) {}
 
   ngOnInit(): void {
@@ -273,7 +274,6 @@ export class WeatherPanelComponent implements OnInit {
 
         return e;
       });
-
 
       return e;
     } else {

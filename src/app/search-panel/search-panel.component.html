@@ -14,12 +14,12 @@
       name="search"
       placeholder="   Search city ..."
       [(ngModel)]="search"
-      (ngModelChange)="searching(search)"
+      (ngModelChange)="searchingCity(search)"
     />
   </div>
 
   <div class="container">
-    <ng-container *ngFor="let city of list_cities">
+    <ng-container *ngFor="let city of listCities">
       <div class="row mt-1">
         <button
           class="hover:bg-[#94b8ffec] btn btn-light"
