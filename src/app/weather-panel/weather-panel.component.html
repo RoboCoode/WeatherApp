@@ -42,7 +42,7 @@
   <div class="flex content-center flex-col flex-wrap">
 
 
-    <div class="row1 w-[95%] flex flex-row  justify-evenly">
+    <div class="row1 w-[96%] flex flex-row  justify-evenly">
       <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
         <img
           class="w-[2.5rem]"
@@ -84,19 +84,32 @@
       </div>
     </div>
 
-    <div class="row2"></div>
-
-    <img class="hum_icon" src="/assets/img/027-humidity.svg" />
-    <div class="hum_text">{{ "" + data.main.humidity + "%" }}</div>
-    <div class="hum_label">Humidity</div>
+    <div class="row2 w-[96%]
+    flex justify-evenly flex-row
+    ">
+    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+      <img class="hum_icon" src="/assets/img/027-humidity.svg" />
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + data.main.humidity + "%" }}</div>
+    <div class=" text-xs text-[#999999] ">Humidity</div>
+  </div>
+  <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
     <img class="bar_icon" src="/assets/img/050-barometer.svg" />
-    <div class="bar_text">{{ "" + data.main.pressure + "  mBar" }}</div>
-    <div class="bar_label">Pressure</div>
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + data.main.pressure + "  mBar" }}</div>
+    <div class=" text-xs text-[#999999] ">Pressure</div>
+  </div>
+
+  <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
     <img class="wind_icon" src="/assets/img/001-wind-1.svg" />
-    <div class="wind_text">
+    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">
       {{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}
     </div>
-    <div class="wind_label">Wind</div>
+
+    <div class=" text-xs text-[#999999] ">Wind</div>
+     </div>
+  
+  </div>
+
+
 
     <div class="row3"></div>
 
