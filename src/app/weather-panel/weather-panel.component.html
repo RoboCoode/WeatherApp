@@ -6,11 +6,7 @@
       {{ "" + datenow(date) }}
     </div>
     <div
-      class="cursor-pointer bg-[#0D9FEA]/10 
-      rounded-tr-3xl rounded-bl-3xl sm:w-[20rem]
-      w-[13rem]
-       h-[3rem] font-medium text-center
-        text-base text-[#0da0ea] border-none"
+      class="cursor-pointer bg-[#0D9FEA]/10 rounded-tr-3xl rounded-bl-3xl sm:w-[20rem] w-[13rem] h-[3rem] font-medium text-center text-base text-[#0da0ea] border-none"
       (click)="opensearchbar()"
     >
       <div
@@ -26,8 +22,8 @@
 
         <div class="flex items-center ml-1.5">
           <svg
-            id="place"
-            width="10"
+            class="place"
+            wclassth="10"
             height="12"
             viewBox="0 0 10 12"
             fill="none"
@@ -43,100 +39,126 @@
     </div>
   </div>
 
-  <div class="flex content-center flex-col flex-wrap"></div>
+  <div class="flex content-center flex-col flex-wrap">
 
-  <div id="row1"></div>
 
-  <div id="main_weather"></div>
-  <div id="location_icon1">
-    <img
-      id="location2_icon2"
-      src="http://openweathermap.org/img/wn/10d@2x.png"
-    />
-  </div>
-  <div id="main_w_text">{{ "" + data.weather[0].main }}</div>
+    <div class="row1 w-[95%] flex flex-row  justify-evenly">
+      <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+        <img
+          class="w-[2.5rem]"
+          src="http://openweathermap.org/img/wn/10d@2x.png"
+        />
 
-  <div id="temp">{{ "" + data.main.temp.toFixed(0) }}</div>
-  <div id="celsius">°C</div>
+        <div class="text-black font-medium text-lg text-center">
+          {{ "" + data.weather[0].main }}
+        </div>
+      </div>
 
-  <div id="temp_var">
-    <img id="arrow_up" src="/assets/img/vector.svg" />
-    <img id="arrow_down" src="/assets/img/vector.svg" />
-  </div>
-  <div id="max_temp">{{ "" + data.main.temp_max.toFixed(0) + "°C" }}</div>
-  <div id="min_temp">{{ "" + data.main.temp_min.toFixed(0) + "°C" }}</div>
+      <div class="flex items-center">
+        <div
+          class="font-light tracking-tighter text-[3.875rem] leading-[4.813rem]"
+        >
+          {{ "" + data.main.temp.toFixed(0) }}
+        </div>
+        <div
+          class="leading-3 text-[#666666] text-[1.5rem] font-medium w-[1.5rem] h-[1.813rem]"
+        >
+          °C
+        </div>
+      </div>
 
-  <div id="row2"></div>
+      <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+        <div class="flex mt-[0.625rem]">
+          <div class="max_temp  mt-[0.625] text-[1rem] leading-[1.188rem] font-light">
+            {{ "" + data.main.temp_max.toFixed(0) + "°C" }}
+          </div>
+          <img class="arrow_up" src="/assets/img/vector.svg" />
+        </div>
 
-  <img id="hum_icon" src="/assets/img/027-humidity.svg" />
-  <div id="hum_text">{{ "" + data.main.humidity + "%" }}</div>
-  <div id="hum_label">Humidity</div>
-  <img id="bar_icon" src="/assets/img/050-barometer.svg" />
-  <div id="bar_text">{{ "" + data.main.pressure + "  mBar" }}</div>
-  <div id="bar_label">Pressure</div>
-  <img id="wind_icon" src="/assets/img/001-wind-1.svg" />
-  <div id="wind_text">{{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}</div>
-  <div id="wind_label">Wind</div>
+        <div class="flex mt-[0.625rem]">
+          <div class="min_temp  text-[1rem] leading-[1.188rem] font-light ">
+            {{ "" + data.main.temp_min.toFixed(0) + "°C" }}
+          </div>
+          <img class="arrow_down" src="/assets/img/vector.svg" />
+        </div>
+      </div>
+    </div>
 
-  <div id="row3"></div>
+    <div class="row2"></div>
 
-  <img id="sunrise_icon" src="/assets/img/008-sunrise.svg" />
-  <div id="sunrise_text">{{ "" + time_format(data.sys.sunrise) }}</div>
-  <div id="sunrise_label">Sunrise</div>
-  <img id="sunset_icon" src="/assets/img/007-sunset.svg" />
-  <div id="sunset_text">{{ "" + time_format(data.sys.sunset) }}</div>
-  <div id="sunset_label">Sunset</div>
-  <img id="clock_icon" src="/assets/img/sand-clock.svg" />
-  <div id="clock_text">{{ daytime(data.sys.sunset, data.sys.sunrise) }}</div>
-  <div id="clock_label">Daytime</div>
+    <img class="hum_icon" src="/assets/img/027-humidity.svg" />
+    <div class="hum_text">{{ "" + data.main.humidity + "%" }}</div>
+    <div class="hum_label">Humidity</div>
+    <img class="bar_icon" src="/assets/img/050-barometer.svg" />
+    <div class="bar_text">{{ "" + data.main.pressure + "  mBar" }}</div>
+    <div class="bar_label">Pressure</div>
+    <img class="wind_icon" src="/assets/img/001-wind-1.svg" />
+    <div class="wind_text">
+      {{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}
+    </div>
+    <div class="wind_label">Wind</div>
 
-  <div id="row4"></div>
+    <div class="row3"></div>
 
-  <div id="first_day"></div>
-  <div id="first_dayText">{{ days_forecast[0] }}</div>
-  <img id="icon_day1" src="http://openweathermap.org/img/wn/10d@2x.png" />
+    <img class="sunrise_icon" src="/assets/img/008-sunrise.svg" />
+    <div class="sunrise_text">{{ "" + time_format(data.sys.sunrise) }}</div>
+    <div class="sunrise_label">Sunrise</div>
+    <img class="sunset_icon" src="/assets/img/007-sunset.svg" />
+    <div class="sunset_text">{{ "" + time_format(data.sys.sunset) }}</div>
+    <div class="sunset_label">Sunset</div>
+    <img class="clock_icon" src="/assets/img/sand-clock.svg" />
+    <div class="clock_text">
+      {{ daytime(data.sys.sunset, data.sys.sunrise) }}
+    </div>
+    <div class="clock_label">Daytime</div>
 
-  <div id="first_group">
-    <img id="first_up" src="/assets/img/vector.svg" />
-    <img id="first_down" src="/assets/img/vector.svg" />
-  </div>
+    <div class="row4"></div>
 
-  <div id="first_daymax">
-    {{ newlistForecast[0]?.main?.temp_max?.toFixed(0) + "°C" }}
-  </div>
-  <div id="first_daymin">
-    {{ newlistForecast[0]?.main?.temp_min?.toFixed(0) + "°C" }}
-  </div>
+    <div class="first_day"></div>
+    <div class="first_dayText">{{ days_forecast[0] }}</div>
+    <img class="icon_day1" src="http://openweathermap.org/img/wn/10d@2x.png" />
 
-  <div id="second_day"></div>
-  <div id="second_dayText">{{ days_forecast[1] }}</div>
-  <img id="icon_day2" src="http://openweathermap.org/img/wn/10d@2x.png" />
-  <div id="second_group">
-    <img id="second_up" src="/assets/img/vector.svg" />
-    <img id="second_down" src="/assets/img/vector.svg" />
-  </div>
+    <div class="first_group">
+      <img class="first_up" src="/assets/img/vector.svg" />
+      <img class="first_down" src="/assets/img/vector.svg" />
+    </div>
 
-  <div id="second_daymax">
-    {{ newlistForecast[1]?.main?.temp_max?.toFixed(0) + "°C" }}
-  </div>
-  <div id="second_daymin">
-    {{ newlistForecast[1]?.main?.temp_min?.toFixed(0) + "°C" }}
-  </div>
+    <div class="first_daymax">
+      {{ newlistForecast[0]?.main?.temp_max?.toFixed(0) + "°C" }}
+    </div>
+    <div class="first_daymin">
+      {{ newlistForecast[0]?.main?.temp_min?.toFixed(0) + "°C" }}
+    </div>
 
-  <div id="third_day"></div>
-  <div id="third_dayText">{{ days_forecast[2] }}</div>
-  <img id="icon_day3" src="http://openweathermap.org/img/wn/10d@2x.png" />
-  <div id="third_group">
-    <img id="third_up" src="/assets/img/vector.svg" />
-    <img id="third_down" src="/assets/img/vector.svg" />
-  </div>
+    <div class="second_day"></div>
+    <div class="second_dayText">{{ days_forecast[1] }}</div>
+    <img class="icon_day2" src="http://openweathermap.org/img/wn/10d@2x.png" />
+    <div class="second_group">
+      <img class="second_up" src="/assets/img/vector.svg" />
+      <img class="second_down" src="/assets/img/vector.svg" />
+    </div>
 
-  <div id="third_daymax">
-    {{ newlistForecast[2]?.main?.temp_max?.toFixed(0) + "°C" }}
-  </div>
-  <div id="third_daymin">
-    {{ newlistForecast[2]?.main?.temp_min?.toFixed(0) + "°C" }}
+    <div class="second_daymax">
+      {{ newlistForecast[1]?.main?.temp_max?.toFixed(0) + "°C" }}
+    </div>
+    <div class="second_daymin">
+      {{ newlistForecast[1]?.main?.temp_min?.toFixed(0) + "°C" }}
+    </div>
+
+    <div class="third_day"></div>
+    <div class="third_dayText">{{ days_forecast[2] }}</div>
+    <img class="icon_day3" src="http://openweathermap.org/img/wn/10d@2x.png" />
+    <div class="third_group">
+      <img class="third_up" src="/assets/img/vector.svg" />
+      <img class="third_down" src="/assets/img/vector.svg" />
+    </div>
+
+    <div class="third_daymax">
+      {{ newlistForecast[2]?.main?.temp_max?.toFixed(0) + "°C" }}
+    </div>
+    <div class="third_daymin">
+      {{ newlistForecast[2]?.main?.temp_min?.toFixed(0) + "°C" }}
+    </div>
   </div>
 </div>
-
 <app-search-panel *ngIf="open" (emitData)="grabData($event)"></app-search-panel>
