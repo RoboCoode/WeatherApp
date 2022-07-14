@@ -1,8 +1,10 @@
 <div
-  class="absolute z-20 bg-white w-screen h-screen shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-{17.438rem}"
+  class="absolute z-20 bg-white w-screen h-[33.188rem] shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-{17.438rem}"
 >
   <div class="flex justify-between">
-    <div class="flex p-1.5 items-center font-normal text-sm text-center text-[#999999]">
+    <div
+      class="flex p-1.5 items-center font-normal text-sm text-center text-[#999999]"
+    >
       {{ "" + datenow(date) }}
     </div>
     <div
@@ -40,12 +42,12 @@
   </div>
 
   <div class="flex content-center flex-col flex-wrap">
-
-
-    <div class="row1 w-[96%] flex flex-row  justify-evenly">
-      <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+    <div class="row1 w-[96%] flex flex-row justify-evenly">
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
         <img
-          class="w-[2.5rem]"
+          class="w-[2.5rem] h-[2.5rem]"
           src="http://openweathermap.org/img/wn/10d@2x.png"
         />
 
@@ -67,16 +69,20 @@
         </div>
       </div>
 
-      <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
         <div class="flex mt-[0.625rem]">
-          <div class="max_temp  mt-[0.625] text-[1rem] leading-[1.188rem] font-light">
+          <div
+            class="max_temp mt-[0.625] text-[1rem] leading-[1.188rem] font-light"
+          >
             {{ "" + data.main.temp_max.toFixed(0) + "°C" }}
           </div>
           <img class="arrow_up" src="/assets/img/vector.svg" />
         </div>
 
         <div class="flex mt-[0.625rem]">
-          <div class="min_temp  text-[1rem] leading-[1.188rem] font-light ">
+          <div class="min_temp text-[1rem] leading-[1.188rem] font-light">
             {{ "" + data.main.temp_min.toFixed(0) + "°C" }}
           </div>
           <img class="arrow_down" src="/assets/img/vector.svg" />
@@ -84,106 +90,173 @@
       </div>
     </div>
 
-    <div class="row2 w-[96%]
-    flex justify-evenly flex-row
-    ">
-    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-      <img class="hum_icon" src="/assets/img/027-humidity.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + data.main.humidity + "%" }}</div>
-    <div class=" text-xs text-[#999999] ">Humidity</div>
-  </div>
-  <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-    <img class="bar_icon" src="/assets/img/050-barometer.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + data.main.pressure + "  mBar" }}</div>
-    <div class=" text-xs text-[#999999] ">Pressure</div>
-  </div>
+    <div class="row2 w-[96%] flex justify-evenly flex-row">
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="hum_icon" src="/assets/img/027-humidity.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ "" + data.main.humidity + "%" }}
+        </div>
+        <div class="text-[0.5rem] text-[#999999]">Humidity</div>
+      </div>
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="bar_icon" src="/assets/img/050-barometer.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ "" + data.main.pressure + "  mBar" }}
+        </div>
+        <div class="text-[0.5rem] text-[#999999]">Pressure</div>
+      </div>
 
-  <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-    <img class="wind_icon" src="/assets/img/001-wind-1.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">
-      {{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="wind_icon" src="/assets/img/001-wind-1.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ "" + data.wind.speed.toFixed(0) + " " + "km/h" }}
+        </div>
+
+        <div class="text-[0.5rem] text-[#999999]">Wind</div>
+      </div>
     </div>
 
-    <div class=" text-xs text-[#999999] ">Wind</div>
-     </div>
-  
-  </div>
-
-
-
-  <div class="row3 w-[96%]
-    flex justify-evenly flex-row
-    ">
-    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-
-    <img class="sunrise_icon" src="/assets/img/008-sunrise.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + time_format(data.sys.sunrise) }}</div>
-    <div class=" text-xs text-[#999999] ">Sunrise</div>
-    </div>
-    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-
-    <img class="sunset_icon" src="/assets/img/007-sunset.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">{{ "" + time_format(data.sys.sunset) }}</div>
-    <div class=" text-xs text-[#999999] ">Sunset</div>
-  </div>
-    <div class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center">
-
-    <img class="clock_icon" src="/assets/img/sand-clock.svg" />
-    <div class=" font-medium py-[0.313rem] text-base text-[#444444]">
-      {{ daytime(data.sys.sunset, data.sys.sunrise) }}
-    </div>
-    <div class=" text-xs text-[#999999] ">Daytime</div>
-  </div>
-  </div>
-
-
-
-    <div class="row4"></div>
-
-    <div class="first_day"></div>
-    <div class="first_dayText">{{ days_forecast[0] }}</div>
-    <img class="icon_day1" src="http://openweathermap.org/img/wn/10d@2x.png" />
-
-    <div class="first_group">
-      <img class="first_up" src="/assets/img/vector.svg" />
-      <img class="first_down" src="/assets/img/vector.svg" />
+    <div class="row3 w-[96%] flex justify-evenly flex-row">
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="sunrise_icon" src="/assets/img/008-sunrise.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ "" + time_format(data.sys.sunrise) }}
+        </div>
+        <div class="text-[0.5rem] text-[#999999]">Sunrise</div>
+      </div>
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="sunset_icon" src="/assets/img/007-sunset.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ "" + time_format(data.sys.sunset) }}
+        </div>
+        <div class="text-[0.5rem] text-[#999999]">Sunset</div>
+      </div>
+      <div
+        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+      >
+        <img class="clock_icon" src="/assets/img/sand-clock.svg" />
+        <div class="font-medium py-[0.313rem] text-base text-[#444444]">
+          {{ daytime(data.sys.sunset, data.sys.sunrise) }}
+        </div>
+        <div class="text-[0.5rem] text-[#999999]">Daytime</div>
+      </div>
     </div>
 
-    <div class="first_daymax">
-      {{ newlistForecast[0]?.main?.temp_max?.toFixed(0) + "°C" }}
-    </div>
-    <div class="first_daymin">
-      {{ newlistForecast[0]?.main?.temp_min?.toFixed(0) + "°C" }}
-    </div>
+    <div class="row4 w-[96%] flex justify-evenly flex-row">
+      <div
+        class="box2 flex flex-col bg-white shadow-[0_8px_24px_rgba(0,0,0,0.3)] rounded-[1rem] items-center justify-center w-[5.938rem] h-[6.313rem]"
+      >
+        <div class="w-[1.5rem] h-[1.5rem]">
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+        </div>
 
-    <div class="second_day"></div>
-    <div class="second_dayText">{{ days_forecast[1] }}</div>
-    <img class="icon_day2" src="http://openweathermap.org/img/wn/10d@2x.png" />
-    <div class="second_group">
-      <img class="second_up" src="/assets/img/vector.svg" />
-      <img class="second_down" src="/assets/img/vector.svg" />
-    </div>
+        <div class="font-medium text-base text-[#444444] tracking-tighter">
+          {{ days_forecast[0] }}
+        </div>
 
-    <div class="second_daymax">
-      {{ newlistForecast[1]?.main?.temp_max?.toFixed(0) + "°C" }}
-    </div>
-    <div class="second_daymin">
-      {{ newlistForecast[1]?.main?.temp_min?.toFixed(0) + "°C" }}
-    </div>
+        <div class="flex text-[#999999] justify-between text-[0.5rem]">
+          <div class="flex">
+            <div class="first_daymax">
+              {{ newlistForecast[0]?.main?.temp_max?.toFixed(0) + "°C" }}
+            </div>
 
-    <div class="third_day"></div>
-    <div class="third_dayText">{{ days_forecast[2] }}</div>
-    <img class="icon_day3" src="http://openweathermap.org/img/wn/10d@2x.png" />
-    <div class="third_group">
-      <img class="third_up" src="/assets/img/vector.svg" />
-      <img class="third_down" src="/assets/img/vector.svg" />
-    </div>
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img src="/assets/img/vector.svg" />
+            </div>
+          </div>
 
-    <div class="third_daymax">
-      {{ newlistForecast[2]?.main?.temp_max?.toFixed(0) + "°C" }}
-    </div>
-    <div class="third_daymin">
-      {{ newlistForecast[2]?.main?.temp_min?.toFixed(0) + "°C" }}
+          <div class="flex pl-1">
+            <div class="first_daymin">
+              {{ newlistForecast[0]?.main?.temp_min?.toFixed(0) + "°C" }}
+            </div>
+
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img class="arrow_down" src="/assets/img/vector.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="box2 flex flex-col bg-white shadow-[0_8px_24px_rgba(0,0,0,0.3)] rounded-[1rem] items-center justify-center w-[5.938rem] h-[6.313rem]"
+      >
+        <div class="w-[1.5rem] h-[1.5rem]">
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+        </div>
+
+        <div class="font-medium text-base text-[#444444] tracking-tighter">
+          {{ days_forecast[1] }}
+        </div>
+
+        <div class="flex text-[#999999] justify-between text-[0.5rem]">
+          <div class="flex">
+            <div class="first_daymax">
+              {{ newlistForecast[1]?.main?.temp_max?.toFixed(0) + "°C" }}
+            </div>
+
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img src="/assets/img/vector.svg" />
+            </div>
+          </div>
+
+          <div class="flex pl-1">
+            <div class="first_daymin">
+              {{ newlistForecast[1]?.main?.temp_min?.toFixed(0) + "°C" }}
+            </div>
+
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img class="arrow_down" src="/assets/img/vector.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="box2 flex flex-col bg-white shadow-[0_8px_24px_rgba(0,0,0,0.3)] rounded-[1rem] items-center justify-center w-[5.938rem] h-[6.313rem]"
+      >
+        <div class="w-[1.5rem] h-[1.5rem]">
+          <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+        </div>
+
+        <div class="font-medium text-base text-[#444444] tracking-tighter">
+          {{ days_forecast[2] }}
+        </div>
+
+        <div class="flex text-[#999999] justify-between text-[0.5rem]">
+          <div class="flex">
+            <div class="first_daymax">
+              {{ newlistForecast[2]?.main?.temp_max?.toFixed(0) + "°C" }}
+            </div>
+
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img src="/assets/img/vector.svg" />
+            </div>
+          </div>
+
+          <div class="flex pl-1">
+            <div class="first_daymin">
+              {{ newlistForecast[2]?.main?.temp_min?.toFixed(0) + "°C" }}
+            </div>
+
+            <div class="mt-1 w-[0.313rem] h-[0.438rem] pl-[0.125rem]">
+              <img class="arrow_down" src="/assets/img/vector.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 </div>
