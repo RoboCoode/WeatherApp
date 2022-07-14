@@ -1,20 +1,20 @@
 <div
-  class="absolute z-20 bg-white w-screen h-[33.188rem] shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-{17.438rem}"
+  class="absolute z-20 bg-white w-screen h-[33.188rem] shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-[17.438rem]"
 >
   <div class="flex justify-between">
     <div
-      class="flex p-1.5 items-center font-normal text-sm text-center text-[#999999]"
+      class="flex p-1.5 items-center font-normal text-xs sm:text-[0.9rem] text-center text-[#999999] font-['Barlow']"
     >
       {{ "" + datenow(date) }}
     </div>
     <div
-      class="cursor-pointer bg-[#0D9FEA]/10 rounded-tr-3xl rounded-bl-3xl sm:w-[20rem] w-[13rem] h-[3rem] font-medium text-center text-base text-[#0da0ea] border-none"
+      class="cursor-pointer bg-[#0D9FEA]/10 rounded-tr-3xl rounded-bl-3xl sm:w-[30em] w-[12rem] h-[3rem] font-['Barlow'] font-medium text-center text-base text-[#0da0ea] border-none"
       (click)="opensearchbar()"
     >
       <div
         class="ml-[0.375rem] mt-[0.938rem] mb-[0.875rem] flex flex-row justify-center"
       >
-        <div>
+        <div >
           {{
             data.name == "Nižné Nemecké"
               ? "Koromľa, Slovakia"
@@ -63,7 +63,7 @@
           {{ "" + data.main.temp.toFixed(0) }}
         </div>
         <div
-          class="leading-3 text-[#666666] text-[1.5rem] font-medium w-[1.5rem] h-[1.813rem]"
+          class="leading-3 pl-[0.3rem] text-[#666666] text-[1.5rem] font-medium w-[1.5rem] h-[1.813rem]"
         >
           °C
         </div>
@@ -254,9 +254,6 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
   </div>
 </div>

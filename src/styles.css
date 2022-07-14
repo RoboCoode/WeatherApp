@@ -2,3 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Barlow"), url(./assets/fonts/Barlow/Barlow-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Barlow"), url(./assets/fonts/Barlow/Barlow-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Barlow";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Barlow"), url(./assets/fonts/Barlow/Barlow-Medium.ttf) format("truetype");
+}
+
+
+@font-face {
+    font-family: "Barlow";
+    font-style: italic ;
+    font-weight: 500;
+    src: local("Barlow"), url(./assets/fonts/Barlow/Barlow-MediumItalic.ttf) format("truetype");
+}
+
+*{ font-family: 'Barlow';}
