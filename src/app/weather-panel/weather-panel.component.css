@@ -35,17 +35,11 @@
   box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
 }
 
-#city {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  left: 345px;
-  top: 297px;
-  z-index: 2;
-}
+
+
 
 #rectangle {
-  position: absolute;
+
   position: absolute;
   width: 154px;
   height: 48px;
@@ -54,7 +48,11 @@
   border-bottom-left-radius: 20px;
   background: rgba(13, 159, 234, 0.08);
   z-index: 2;
+  cursor:pointer
 }
+
+
+
 
 #text_city {
   position: absolute;
@@ -73,6 +71,8 @@
   color: #0da0ea;
 }
 
+
+
 #place {
   position: absolute;
   left: 15.56%;
@@ -90,23 +90,9 @@
   top: 297px;
 }
 
-#row1 {
-  position: absolute;
-  width: 282px;
-  height: 77px;
-  left: 45px;
-  top: 351px;
-  z-index: 2;
-}
 
-#main_weather {
-  position: absolute;
-  width: 45px;
-  height: 61px;
-  left: 45px;
-  top: 361px;
-  z-index: 2;
-}
+
+
 
 #main_w_text {
   position: absolute;
@@ -241,14 +227,7 @@
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
-#row2 {
-  position: absolute;
-  width: 285px;
-  height: 69px;
-  left: 49px;
-  top: 468px;
-  z-index: 2;
-}
+
 
 #hum_icon {
   position: absolute;
@@ -277,14 +256,7 @@
   z-index: 2;
 }
 
-#row3 {
-  position: absolute;
-  width: 287px;
-  height: 69px;
-  left: 41px;
-  top: 577px;
-  z-index: 2;
-}
+
 
 #sunrise_icon {
   position: absolute;
@@ -313,14 +285,7 @@
   z-index: 2;
 }
 
-#row4 {
-  position: absolute;
-  width: 325px;
-  height: 101px;
-  left: 19px;
-  top: 670px;
-  z-index: 2;
-}
+
 
 #hum_text {
   position: absolute;
@@ -765,6 +730,7 @@
   left: 266px;
   top: 745px;
 }
+
 #third_daymax {
   z-index: 2;
   position: absolute;

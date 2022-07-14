@@ -6,9 +6,10 @@ body {
 }
 
 #sky {
-  position: relative;
-  width:fit-content;
+  position: absolute;
+  width:375px;
   height: 300px;
+  
   z-index: 1;
 }
 
