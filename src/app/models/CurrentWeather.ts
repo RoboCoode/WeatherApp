@@ -1,3 +1,4 @@
+
 export interface CurrentWeather {
     coord: {
       lon: number;

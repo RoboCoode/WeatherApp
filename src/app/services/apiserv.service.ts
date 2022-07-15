@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { catchError, map, throwError } from 'rxjs';
-import { retry } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
+import { map, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class ApiservService {
 
   constructor(private http: HttpClient) {}
 
-  getWeather(lat: string, lon: string) {
+  reqWeather(lat: string, lon: string) {
     return this.http
       .get(this.api_current(lat, lon))
       .pipe(
@@ -35,7 +35,7 @@ export class ApiservService {
       );
   }
 
-  getForecast(lat: string, lon: string) {
+  reqForecast(lat: string, lon: string) {
     return this.http
       .get(this.api_forecast(lat, lon))
       .pipe(

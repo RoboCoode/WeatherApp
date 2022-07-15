@@ -4,6 +4,7 @@ import { CurrentWeather } from '../models/CurrentWeather';
 import { ForecastWeather } from '../models/ForecastWeather';
 import { HourStep } from '../models/ForecastWeather';
 import { map } from 'rxjs';
+import { GlobStorageService } from '../services/glob-storage.service';
 
 @Component({
   selector: 'app-weather-panel',
@@ -11,6 +12,8 @@ import { map } from 'rxjs';
   styleUrls: ['./weather-panel.component.css'],
 })
 export class WeatherPanelComponent implements OnInit {
+  icons: any;
+
   hourstep: HourStep = {
     dt: 0,
     main: {
@@ -89,7 +92,10 @@ export class WeatherPanelComponent implements OnInit {
   days_forecast: (string | undefined)[] = [];
   number_days_date: (string | undefined)[] = [];
 
-  constructor(public apiserv: ApiservService) {}
+  constructor(
+    public apiserv: ApiservService,
+    public storage: GlobStorageService
+  ) {}
 
   ngOnInit(): void {
     this.loaddata_forecast();
@@ -97,23 +103,21 @@ export class WeatherPanelComponent implements OnInit {
     this.date = Date();
   }
 
-  //http get forecast data
   loaddata_forecast() {
     this.apiserv
-      .getForecast(this.childData[0], this.childData[1])
+      .reqForecast(this.childData[0], this.childData[1])
       .pipe(map((res) => this.filter3days(res)))
       .subscribe((res: any) => {
         return (this.data_forecast = res);
       });
   }
-  //http get current weather data
+
   loaddata() {
     this.apiserv
-      .getWeather(this.childData[0], this.childData[1])
+      .reqWeather(this.childData[0], this.childData[1])
       .subscribe((res: any) => (this.data = res));
   }
 
-  // format casu sunrise, sunset
   time_format(d: any) {
     let t = new Date(d * 1000);
     let tail = '';
@@ -133,7 +137,7 @@ export class WeatherPanelComponent implements OnInit {
     }
     return '' + T.join(':') + tail;
   }
-  //formatuje daytime
+
   daytime(sunset: number, sunrise: number) {
     let c = sunset - sunrise;
     let hours = '' + c / 3600;
@@ -141,7 +145,6 @@ export class WeatherPanelComponent implements OnInit {
     return '' + hours.split('.')[0] + 'h' + '  ' + minutes.split('.')[0] + 'm';
   }
 
-  // formatuje cas OnInit
   datenow(dt: any) {
     let array = dt.toString().split(' ');
     let day = (d: any) => {
@@ -200,10 +203,8 @@ export class WeatherPanelComponent implements OnInit {
   opensearchbar() {
     this.open = !this.open;
   }
-  // pocuva data z child: searchpanel-> parent: weatherpanel
-  // & close panel & refresh dat
 
-  grabData(newdata: []) {
+  getData(newdata: []) {
     this.childData = newdata;
     this.open = !this.open;
     this.date = Date();
@@ -211,7 +212,6 @@ export class WeatherPanelComponent implements OnInit {
     this.loaddata_forecast();
   }
 
-  //filtruje data z 5days/3hsteps API + formatuje
   filter3days(e: any) {
     if (e) {
       this.newlistForecast = e.list.filter((ee: any) => {
@@ -248,6 +248,7 @@ export class WeatherPanelComponent implements OnInit {
         return day;
       };
 
+      console.log(`NEWLIST :` + JSON.stringify(this.newlistForecast));
       this.days_forecast = this.newlistForecast.map((e) => {
         let num: number = e.dt * 1000;
         let t = new Date(num);

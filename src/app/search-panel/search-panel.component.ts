@@ -1,5 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
+import { ApiservService } from '../services/apiserv.service';
+import { GlobStorageService } from '../services/glob-storage.service';
+
 @Component({
   selector: 'app-search-panel',
   templateUrl: './search-panel.component.html',
@@ -8,7 +11,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SearchPanelComponent implements OnInit {
   @Output() emitData = new EventEmitter();
   search: string = '';
-  
 
   listCities = [
     { name: 'Bratislava', cord: ['48.1482', '17.1067'], temp: '' },
@@ -19,9 +21,15 @@ export class SearchPanelComponent implements OnInit {
     { name: 'Sobrance', cord: ['48.7445', '22.1814'], temp: '' },
   ];
 
-  constructor() {}
+  constructor(
+    public apiserv: ApiservService,
+    public storage: GlobStorageService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.storage.checkData();
+    this.listCities = this.storage.getCities();
+  }
 
   sendData(longlat: string[]) {
     this.emitData.emit(longlat);
