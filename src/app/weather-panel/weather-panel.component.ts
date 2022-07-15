@@ -248,7 +248,7 @@ export class WeatherPanelComponent implements OnInit {
         return day;
       };
 
-      console.log(`NEWLIST :` + JSON.stringify(this.newlistForecast));
+     
       this.days_forecast = this.newlistForecast.map((e) => {
         let num: number = e.dt * 1000;
         let t = new Date(num);
