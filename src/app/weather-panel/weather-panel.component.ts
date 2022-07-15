@@ -81,7 +81,7 @@ export class WeatherPanelComponent implements OnInit {
 
   open: boolean = false;
   date: string = '';
-  childData: string[] = ['48.0000', '35.0000'];
+  childData: string[] =['48.714', '21.2581'];
   newlistForecast: HourStep[] = [
     this.hourstep,
     this.hourstep,
