@@ -39,7 +39,7 @@ export class SearchPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.storage.checkData();
-    this.listCities = this.storage.getCities();
+    this.backupCities, this.listCities = this.storage.getCities();
   }
 
   sendData(longlat: string[]) {

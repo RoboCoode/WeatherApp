@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { ApiservService } from './apiserv.service';
 
 @Injectable({
@@ -35,7 +36,7 @@ export class GlobStorageService {
 
     if (!dataString) {
       this.loadTemps();
-      return [];
+      return null;
     }
 
     const dataObj = JSON.parse(dataString);

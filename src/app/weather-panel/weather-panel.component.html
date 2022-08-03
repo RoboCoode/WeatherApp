@@ -1,18 +1,18 @@
 <div
-  class="absolute z-20 bg-white w-screen h-[33.188rem] shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-[17.438rem]"
+  class="weatherPanel absolute z-20 bg-white w-screen h-[33.188rem] shadow-[0_-16px_40px_rgba(0,0,0,0.2)] rounded-t-3xl top-[17.438rem]"
 >
-  <div class="flex justify-between">
+  <div class="timeBtnWraper flex justify-between">
     <div
-      class="flex p-1.5 items-center font-normal text-xs sm:text-[0.9rem] text-center text-[#999999] font-['Barlow']"
+      class="loadingTextDate flex p-1.5 items-center font-normal text-xs sm:text-[0.9rem] text-center text-[#999999] font-['Barlow']"
     >
-      {{ "" + datenow(date) }}
+      {{ "" + dateNow(date) }}
     </div>
     <div
-      class="cursor-pointer bg-[#0D9FEA]/10 rounded-tr-3xl rounded-bl-3xl sm:w-[30em] w-[12rem] h-[3rem] font-['Barlow'] font-medium text-center text-base text-[#0da0ea] border-none"
-      (click)="opensearchbar()"
+      class="openModal cursor-pointer bg-[#0D9FEA]/10 rounded-tr-3xl rounded-bl-3xl sm:w-[30em] w-[12rem] h-[3rem] font-['Barlow'] font-medium text-center text-base text-[#0da0ea] border-none"
+      (click)="openSearchpanel()"
     >
       <div
-        class="ml-[0.375rem] mt-[0.938rem] mb-[0.875rem] flex flex-row justify-center"
+        class="textModalWrap ml-[0.375rem] mt-[0.938rem] mb-[0.875rem] flex flex-row justify-center"
       >
         <div>
           {{
@@ -44,10 +44,10 @@
   <div class="flex content-center flex-col flex-wrap">
     <div class="row1 w-[96%] flex flex-row justify-evenly">
       <div
-        class="box w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
+        class="boxWraper w-[5.938rem] h-[6.313rem] flex flex-col items-center justify-center"
       >
         <img
-          class="w-[2.5rem] h-[2.5rem]"
+          class="mainWeatherIcon w-[2.5rem] h-[2.5rem]"
           src="{{ '/assets/img/' + data.weather[0].icon + '@2x.png' }}"
           alt="{{ data.weather[0].description }}"
         />
@@ -129,7 +129,7 @@
       >
         <img class="sunrise_icon" src="/assets/img/008-sunrise.svg" />
         <div class="font-medium py-[0.313rem] text-base text-[#444444]">
-          {{ "" + time_format(data.sys.sunrise) }}
+          {{ "" + timeFormat(data.sys.sunrise) }}
         </div>
         <div class="text-[0.5rem] text-[#999999]">Sunrise</div>
       </div>
@@ -138,7 +138,7 @@
       >
         <img class="sunset_icon" src="/assets/img/007-sunset.svg" />
         <div class="font-medium py-[0.313rem] text-base text-[#444444]">
-          {{ "" + time_format(data.sys.sunset) }}
+          {{ "" + timeFormat(data.sys.sunset) }}
         </div>
         <div class="text-[0.5rem] text-[#999999]">Sunset</div>
       </div>
@@ -166,7 +166,7 @@
         </div>
 
         <div class="font-medium text-base text-[#444444] tracking-tighter">
-          {{ days_forecast[0] }}
+          {{ daysForecast[0] }}
         </div>
 
         <div class="flex text-[#999999] justify-between text-[0.5rem]">
@@ -204,7 +204,7 @@
         </div>
 
         <div class="font-medium text-base text-[#444444] tracking-tighter">
-          {{ days_forecast[1] }}
+          {{ daysForecast[1] }}
         </div>
 
         <div class="flex text-[#999999] justify-between text-[0.5rem]">
@@ -242,7 +242,7 @@
         </div>
 
         <div class="font-medium text-base text-[#444444] tracking-tighter">
-          {{ days_forecast[2] }}
+          {{ daysForecast[2] }}
         </div>
 
         <div class="flex text-[#999999] justify-between text-[0.5rem]">

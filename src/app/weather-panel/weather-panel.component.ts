@@ -89,8 +89,8 @@ export class WeatherPanelComponent implements OnInit {
     this.hourstep,
   ];
 
-  days_forecast: (string | undefined)[] = [];
-  number_days_date: (string | undefined)[] = [];
+  daysForecast: (string | undefined)[] = [];
+  numberDaysDate: (string | undefined)[] = [];
 
   constructor(
     public apiserv: ApiservService,
@@ -98,12 +98,12 @@ export class WeatherPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loaddata_forecast();
+    this.loaddataForecast();
     this.loaddata();
     this.date = Date();
   }
 
-  loaddata_forecast() {
+  loaddataForecast() {
     this.apiserv
       .reqForecast(this.childData[0], this.childData[1])
       .pipe(map((res) => this.filter3days(res)))
@@ -118,7 +118,7 @@ export class WeatherPanelComponent implements OnInit {
       .subscribe((res: any) => (this.data = res));
   }
 
-  time_format(d: any) {
+  timeFormat(d: any) {
     let t = new Date(d * 1000);
     let tail = '';
     let time = [t.getHours(), t.getMinutes()];
@@ -145,7 +145,7 @@ export class WeatherPanelComponent implements OnInit {
     return '' + hours.split('.')[0] + 'h' + '  ' + minutes.split('.')[0] + 'm';
   }
 
-  datenow(dt: any) {
+  dateNow(dt: any) {
     let array = dt.toString().split(' ');
     let day = (d: any) => {
       let day;
@@ -200,7 +200,7 @@ export class WeatherPanelComponent implements OnInit {
     );
   }
 
-  opensearchbar() {
+  openSearchpanel() {
     this.open = !this.open;
   }
 
@@ -209,7 +209,7 @@ export class WeatherPanelComponent implements OnInit {
     this.open = !this.open;
     this.date = Date();
     this.loaddata();
-    this.loaddata_forecast();
+    this.loaddataForecast();
   }
 
   filter3days(e: any) {
@@ -248,14 +248,15 @@ export class WeatherPanelComponent implements OnInit {
         return day;
       };
 
+      
      
-      this.days_forecast = this.newlistForecast.map((e) => {
+      this.daysForecast = this.newlistForecast.map((e) => {
         let num: number = e.dt * 1000;
         let t = new Date(num);
         return day(t.getDay());
       });
 
-      this.number_days_date = this.newlistForecast.map((e) => {
+      this.numberDaysDate = this.newlistForecast.map((e) => {
         let num: number = e.dt * 1000;
         let t = new Date(num);
         return t.getDate().toString();
@@ -264,14 +265,14 @@ export class WeatherPanelComponent implements OnInit {
       let today = new Date();
       let today_day = day(today.getDay());
 
-      if (this.days_forecast[0] == today_day) {
-        this.days_forecast.shift();
+      if (this.daysForecast[0] == today_day) {
+        this.daysForecast.shift();
         this.newlistForecast.shift();
-        this.number_days_date.shift();
+        this.numberDaysDate.shift();
       }
 
-      this.days_forecast = this.days_forecast.map((e, i) => {
-        e = e + ', ' + this.number_days_date[i];
+      this.daysForecast = this.daysForecast.map((e, i) => {
+        e = e + ', ' + this.numberDaysDate[i];
 
         return e;
       });
