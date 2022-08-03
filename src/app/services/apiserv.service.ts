@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { map, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,19 +12,20 @@ export class ApiservService {
 
   
   private api_current = (lat: string, lon: string) =>
-    'https://api.openweathermap.org/data/2.5/weather?lat=' +
+    `${environment.apiUrl}/weather?lat=` +
     lat +
     '&lon=' +
     lon +
-    '&appid=d6e68d99ae416bc82f8cf813f4f77092&units=metric';
+    `&${environment.apiId}`;
 
   private api_forecast = (lat: string, lon: string) =>
-    'https://api.openweathermap.org/data/2.5/forecast?lat=' +
+  `${environment.apiUrl}/forecast?lat=` +
     lat +
     '&lon=' +
     lon +
     '&cnt=32' +
-    '&appid=d6e68d99ae416bc82f8cf813f4f77092&units=metric';
+    `&${environment.apiId}`;
+
 
   constructor(private http: HttpClient) {}
 

@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { ApiservService } from './apiserv.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GlobStorageService {
+export class GlobStorageService implements OnInit {
   temps: string[] = [];
   cities = [
     { name: 'Bratislava', cord: ['48.1482', '17.1067'], temp: '' },
@@ -20,6 +20,11 @@ export class GlobStorageService {
     this.temps = this.loadTemps();
   }
 
+  ngOnInit(){ }
+
+
+
+  
   saveData(value: string[]) {
     let NOW = new Date();
 
@@ -49,6 +54,7 @@ export class GlobStorageService {
 
     return dataObj.value;
   }
+
 
   loadTemps() {
     let arr: string[] = [];
